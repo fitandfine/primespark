@@ -1,497 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeSpark Service Limited - Premium Cleaning Services NZ</title>
-    <style>
-        /* --- General Reset & Variables --- */
-        :root {
-            --prime-color: #007bff; /* Vibrant Blue */
-            --accent-color: #28a745; /* Action Green */
-            --light-bg: #f8f9fa;
-            --dark-text: #343a40;
-            --white: #ffffff;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeSpark Service Limited - Premium Cleaning Services NZ</title>
+<style>
+/* VARIABLES */
+:root {
+    --prime-color: #007bff;
+    --accent-color: #28a745;
+    --light-bg: #f8f9fa;
+    --dark-text: #343a40;
+    --white: #ffffff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--dark-text);
+}
 
-        body {
-            font-family: var(--font-family);
-            margin: 0;
-            padding: 0;
-            color: var(--dark-text);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
+/* ANIMATION */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 40px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.animate-in { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+.delay-5 { animation-delay: 0.9s; }
 
-        /* --- Animations --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translate3d(0, 40px, 0); }
-            to { opacity: 1; transform: translate3d(0, 0, 0); }
-        }
+/* HERO */
+.hero-section {
+    background: linear-gradient(135deg, rgba(0,123,255,0.9), rgba(40,167,69,0.9)), url('hero-bg.jpg') center/cover;
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--white);
+    min-height: 60vh;
+    display: flex; flex-direction: column; justify-content: center;
+}
+.logo-container img {
+    max-width: 120px; border-radius: 50%; border: 4px solid var(--white);
+}
+.hero-section h1 { font-size: 2.8em; font-weight: 700; }
+.hero-section p { max-width: 750px; margin: 0 auto; font-size: 1.2em; }
 
-        .animate-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.3s; }
-        .delay-3 { animation-delay: 0.5s; }
-        .delay-4 { animation-delay: 0.7s; }
-        .delay-5 { animation-delay: 0.9s; }
-        .delay-6 { animation-delay: 1.1s; }
+/* CTA BUTTONS */
+.cta-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 35px; }
+.cta-button {
+    padding: 15px 30px; border-radius: 50px; text-decoration: none;
+    font-size: 1.1em; font-weight: 700; cursor: pointer;
+    transition: 0.2s; min-width: 200px; text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+.cta-button:hover { transform: translateY(-4px); }
+.cta-primary { background: var(--accent-color); color: var(--white); }
+.cta-secondary { background: var(--prime-color); color: var(--white); }
+.cta-tertiary { background: var(--white); color: var(--dark-text); }
 
-        /* --- Header/Hero Section --- */
-        .hero-section {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(40, 167, 69, 0.9)), url('hero-bg.jpg') no-repeat center center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 80px 20px 40px;
-            min-height: 65vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
+/* SERVICE SECTION */
+.services-section { background: var(--light-bg); padding: 60px 20px; }
+.service-grid { max-width: 1200px; margin: auto; display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); }
+.service-card {
+    background: var(--white); padding: 25px; border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-top: 6px solid var(--accent-color);
+    transition: 0.3s;
+}
+.service-card:hover { transform: translateY(-8px); }
+.service-card h3 { color: var(--prime-color); font-size: 1.5em; }
 
-        .logo-container { margin-bottom: 20px; }
-        .logo-container img {
-            max-width: 120px;
-            height: auto;
-            border-radius: 50%;
-            border: 4px solid var(--white);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
+/* CONTACT */
+.contact-section { background: var(--prime-color); color: var(--white); padding: 60px 20px; }
+.form-container { background: var(--white); padding: 35px; border-radius: 12px; max-width: 650px; margin: auto; color: var(--dark-text); }
+.form-group { margin-bottom: 18px; }
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;
+}
+.radio-group { display: flex; gap: 25px; }
 
-        .hero-section h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
+/* FOOTER */
+footer {
+    background: #111; color: #ccc; text-align: center; padding: 25px;
+}
+footer a { color: var(--accent-color); text-decoration: none; }
 
-        .hero-section p {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-
-        /* --- High-Conversion CTA Button Layout (Prominent) --- */
-        .cta-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            padding-bottom: 40px;
-        }
-
-        .cta-button {
-            padding: 15px 30px;
-            font-size: 1.1em;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-            cursor: pointer;
-            text-align: center;
-            min-width: 200px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Primary CTA (WhatsApp) */
-        .cta-primary {
-            background-color: var(--accent-color);
-            color: var(--white);
-            border: 2px solid var(--accent-color);
-            order: 1; /* Most prominent */
-        }
-
-        /* Secondary CTA (Call) */
-        .cta-secondary {
-            background-color: var(--prime-color);
-            color: var(--white);
-            border: 2px solid var(--prime-color);
-            order: 2;
-        }
-        
-        /* Tertiary CTA (Email/SMS, less prominent but still active) */
-        .cta-tertiary {
-            background-color: var(--white);
-            color: var(--dark-text);
-            border: 2px solid var(--white);
-            order: 3;
-        }
-        .cta-tertiary:hover {
-            color: var(--prime-color);
-        }
-
-        /* --- Sections Layout --- */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .services-section {
-            background-color: var(--light-bg);
-        }
-
-        h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            color: var(--prime-color);
-            font-weight: 700;
-        }
-
-        /* --- Services Grid --- */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            text-align: left;
-            transition: transform 0.3s;
-            border-top: 5px solid var(--accent-color);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-card h3 {
-            color: var(--prime-color);
-            margin-top: 0;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-        .service-card strong {
-            color: var(--accent-color);
-        }
-
-        /* --- Contact Form Section --- */
-        .contact-section {
-            background-color: var(--prime-color);
-            color: var(--white);
-            padding-bottom: 80px;
-        }
-
-        .contact-section h2 {
-            color: var(--white);
-        }
-
-        .form-container {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            max-width: 650px;
-            margin: 0 auto;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            color: var(--dark-text);
-            text-align: left;
-        }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 1em;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            border-color: var(--prime-color);
-            outline: none;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-
-        .radio-group { display: flex; gap: 25px; margin-top: 10px; }
-        .radio-group label { font-weight: normal; display: flex; align-items: center; }
-        .radio-group input[type="radio"] { margin-right: 5px; width: auto; }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--dark-text);
-            color: var(--light-bg);
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.2s;
-        }
-        footer a:hover {
-            color: var(--white);
-        }
-
-        /* --- Mobile Responsiveness --- */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 50px 15px 30px;
-                min-height: 40vh;
-            }
-
-            .hero-section h1 {
-                font-size: 2em;
-            }
-
-            .cta-group {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .cta-button {
-                min-width: 100%;
-            }
-            
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .hero-section h1 { font-size: 2em; }
+    .cta-button { min-width: 100%; }
+    .radio-group { flex-direction: column; gap: 10px; }
+}
+</style>
 </head>
 <body>
 
-    <header class="hero-section">
-        <div class="logo-container animate-in delay-1">
-            <img src="logo.png" alt="PrimeSpark Service Limited Logo">
+<header class="hero-section">
+    <div class="logo-container animate-in delay-1">
+        <img src="logo.png" alt="PrimeSpark Logo">
+    </div>
+    <h1 class="animate-in delay-2">Sparkling Clean Spaces, Guaranteed in NZ.</h1>
+    <p class="animate-in delay-3">Professional, reliable and detail-focused cleaning solutions for homes and businesses across New Zealand.</p>
+
+    <div class="cta-group animate-in delay-4">
+        <a href="https://wa.me/64224210046?text=Hi%20PrimeSpark%2C%20I%20need%20a%20fast%20quote." class="cta-button cta-primary" target="_blank">💬 WhatsApp Quote</a>
+        <a href="tel:+64224210046" class="cta-button cta-secondary">📞 Call Now</a>
+        <a href="#contact-form" class="cta-button cta-tertiary">📄 Request Quote Form</a>
+    </div>
+</header>
+
+<section class="services-section">
+    <h2 class="animate-in delay-1">Our Premium Cleaning Solutions</h2>
+    <div class="service-grid">
+
+        <div class="service-card animate-in delay-2">
+            <h3>Deep Cleaning</h3>
+            <p>A full top-to-bottom cleaning designed to reset your entire space. Every corner, surface, and hidden spot is thoroughly cleaned for a fresh and healthy environment.</p>
         </div>
-        <h1 class="animate-in delay-2">Sparkling Clean Spaces, Guaranteed in NZ.</h1>
-        <p class="animate-in delay-3">
-            New Zealand's trusted partner for superior, reliable cleaning results. **Get your free, instant quote now!**
-        </p>
 
-        <div class="cta-group animate-in delay-4">
-            <a href="https://wa.me/64224210046?text=Hi%20PrimeSpark%2C%20I%20need%20a%20fast%20quote%20for%20a%20clean." 
-               target="_blank" class="cta-button cta-primary">
-                📱 QUOTE via WHATSAPP
-            </a>
-
-            <a href="tel:+64224210046" class="cta-button cta-secondary">
-                📞 CALL US NOW
-            </a>
-            
-            <a href="#contact-form" class="cta-button cta-tertiary">
-                📄 Fill Out Quote Form
-            </a>
+        <div class="service-card animate-in delay-3">
+            <h3>Commercial Cleaning</h3>
+            <p>Reliable scheduled cleaning for offices, shops, and workplaces. We maintain a consistently professional, hygienic space so your business always looks its best.</p>
         </div>
-    </header>
 
-    <section class="services-section">
-        <h2 class="animate-in delay-1">Our Premium Cleaning Solutions</h2>
-        <div class="service-grid">
+        <div class="service-card animate-in delay-4">
+            <h3>Home Cleaning</h3>
+            <p>Flexible and dependable home cleaning tailored to your lifestyle. Weekly, fortnightly or monthly cleaning that keeps your home fresh, organised and spotless every day.</p>
+        </div>
 
-            <div class="service-card animate-in delay-2">
-                <h3>Deep Cleaning</h3>
-                <p>
-                    **The Full Reset:** A comprehensive, meticulous clean hitting every area, from baseboards to ceiling corners. Ideal for periodic refresh or high-detail requirements. We leave no dust behind.
-                </p>
+        <div class="service-card animate-in delay-5">
+            <h3>Move-Out Cleaning</h3>
+            <p>Bond-standard cleaning designed to meet strict tenancy inspection expectations. We help you secure your full bond return with zero stress and guaranteed results.</p>
+        </div>
+
+        <div class="service-card animate-in delay-5">
+            <h3>After Construction Cleaning</h3>
+            <p>We remove dust, debris and fine particles after renovations or building work. Your property is transformed from construction zone to clean, safe and ready-to-use.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact-section" id="contact-form">
+    <h2 class="animate-in delay-1">Request Your Free Quotation</h2>
+    <div class="form-container animate-in delay-2">
+        <form id="quoteForm">
+            <div class="form-group">
+                <label>Your Name*</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label>Email*</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label>Phone / WhatsApp*</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label>Service Needed*</label>
+                <select id="service" required>
+                    <option value="">-- Select --</option>
+                    <option>Deep Cleaning</option>
+                    <option>Commercial Cleaning</option>
+                    <option>Home Cleaning</option>
+                    <option>Move Out Cleaning</option>
+                    <option>After Construction Cleaning</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Details</label>
+                <textarea id="details" rows="4"></textarea>
             </div>
 
-            <div class="service-card animate-in delay-3">
-                <h3>Commercial & Home Cleaning</h3>
-                <p>
-                    **Reliable Regularity:** Custom, scheduled cleaning to maintain a consistently professional and comfortable environment. Flexible plans to suit your busy New Zealand lifestyle or business hours.
-                </p>
+            <div class="form-group">
+                <label>Send Quote Via*</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="method" value="Email" checked>Email</label>
+                    <label><input type="radio" name="method" value="WhatsApp">WhatsApp</label>
+                    <label><input type="radio" name="method" value="SMS">SMS</label>
+                </div>
             </div>
 
-            <div class="service-card animate-in delay-4">
-                <h3>Move-Out Cleaning</h3>
-                <p>
-                    **Bond Back Guaranteed Clean:** Specialized cleaning designed to meet strict tenancy standards. We focus on details property managers inspect to help you **secure your full bond return**.
-                </p>
-            </div>
-            
-            <div class="service-card animate-in delay-5">
-                <h3>After Construction Cleaning</h3>
-                <p>
-                    **Dust-Free Completion:** Removing all hazardous debris and fine construction dust after a renovation. We transform your building site into a sparkling, ready-to-use space, safely and completely.
-                </p>
-            </div>
+            <button class="cta-button cta-primary" style="width:100%;">Submit & Get My Quote</button>
+        </form>
+        <p id="formMessage" style="color:green; font-weight:700; text-align:center; margin-top:15px;"></p>
+    </div>
+</section>
 
-        </div>
-    </section>
+<footer>
+    <p>&copy; 2025 PrimeSpark Service Limited | Developed by <a href="https://github.com/fitandfine" target="_blank">github.com/fitandfine</a></p>
+</footer>
 
-    <section class="contact-section" id="contact-form">
-        <h2 class="animate-in delay-1">Request Your Free Quotation</h2>
-        <div class="form-container animate-in delay-2">
-            <p style="text-align: center; margin-bottom: 25px;">
-                Fill in your details, and we'll instantly prepare your quote and send it via your preferred, fastest channel!
-            </p>
-            <form id="quoteForm">
-                <div class="form-group">
-                    <label for="name">Your Full Name*</label>
-                    <input type="text" id="name" name="name" required placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address*</label>
-                    <input type="email" id="email" name="email" required placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone/WhatsApp Number*</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+64 22 123 4567">
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Needed*</label>
-                    <select id="service" name="service" required>
-                        <option value="">-- Select a Service --</option>
-                        <option value="Deep Cleaning">Deep Cleaning</option>
-                        <option value="Commercial/Home Cleaning">Commercial/Home Regular Cleaning</option>
-                        <option value="Move Out Cleaning">Move Out Cleaning (Bond Clean)</option>
-                        <option value="After Construction Cleaning">After Construction Cleaning</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="details">Required Details (Size, location, specific needs)</label>
-                    <textarea id="details" name="details" placeholder="e.g., 3-bed house in Auckland, needing Move Out Clean on Dec 20th."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Choose Quote Delivery Method*</label>
-                    <div class="radio-group">
-                        <input type="radio" id="via-email" name="submission-method" value="Email" required checked>
-                        <label for="via-email">📧 Email</label>
-                        <input type="radio" id="via-whatsapp" name="submission-method" value="WhatsApp" required>
-                        <label for="via-whatsapp">💬 WhatsApp</label>
-                        <input type="radio" id="via-sms" name="submission-method" value="SMS" required>
-                        <label for="via-sms">📱 SMS</label>
-                    </div>
-                </div>
+<script>
+const form = document.getElementById('quoteForm');
+const msg = document.getElementById('formMessage');
+form.addEventListener('submit', e => {
+    e.preventDefault();
 
-                <button type="submit" class="cta-button cta-primary" style="width: 100%; margin-top: 25px;">
-                    ⚡ SUBMIT REQUEST AND GET MY QUOTE
-                </button>
-            </form>
-            <div id="formMessage" style="margin-top: 20px; text-align: center; font-weight: 600; color: var(--white);"></div>
-        </div>
-    </section>
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+    const details = document.getElementById('details').value;
+    const method = document.querySelector('input[name="method"]:checked').value;
 
-    <footer>
-        <p>&copy; 2025 PrimeSpark Service Limited. Servicing New Zealand.</p>
-        <p>
-            <a href="mailto:chetanbogati1998@gmail.com">Email: chetanbogati1998@gmail.com</a>
-            |
-            <a href="tel:+64224210046">Phone: +64 224210046</a>
-        </p>
-    </footer>
+    const text = encodeURIComponent(
+        `Quotation Request\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nDetails: ${details}`
+    );
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- SCROLL ANIMATION EFFECT ---
-            const elements = document.querySelectorAll('.animate-in');
-            
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
+    let url = '';
+    if (method === 'WhatsApp') url = `https://wa.me/64224210046?text=${text}`;
+    else if (method === 'SMS') url = `sms:+64224210046?body=${text}`;
+    else url = `mailto:chetanbogati1998@gmail.com?subject=Quote Request&body=${text}`;
 
-            elements.forEach(el => {
-                observer.observe(el);
-            });
-
-
-            // --- FORM SUBMISSION LOGIC (NO SERVER NEEDED) ---
-            const form = document.getElementById('quoteForm');
-            const formMessage = document.getElementById('formMessage');
-            const submitButton = form.querySelector('button[type="submit"]');
-
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // 1. Collect Data
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const service = document.getElementById('service').value;
-                const details = document.getElementById('details').value.trim();
-                const submissionMethod = document.querySelector('input[name="submission-method"]:checked').value;
-                
-                // 2. Format Message (URL-encoded)
-                const subject = encodeURIComponent(`QUOTATION REQUEST: ${service} from ${name}`);
-                const bodyText = (
-                    `Hello PrimeSpark Service,\n\nI am requesting a quotation for: ${service}\n\n` +
-                    `My Details:\n` +
-                    `Name: ${name}\n` +
-                    `Email: ${email}\n` +
-                    `Phone/WhatsApp: ${phone}\n\n` +
-                    `Service Details:\n` +
-                    `${details}\n\n` +
-                    `I prefer my quote be delivered via: ${submissionMethod}\n\n`
-                );
-                const body = encodeURIComponent(bodyText);
-                
-                // 3. Select Action based on chosen method
-                let destinationUrl = '';
-                let successMsg = '';
-                const targetNumber = '+64224210046'; // Your official number
-
-                if (submissionMethod === 'WhatsApp') {
-                    // Pre-fills a WhatsApp message
-                    destinationUrl = `https://wa.me/${targetNumber.replace(/\s/g, '')}?text=${body}`;
-                    successMsg = '✅ Request prepared! Redirecting to WhatsApp to send the details...';
-                } else if (submissionMethod === 'SMS') {
-                    // Pre-fills an SMS message
-                    destinationUrl = `sms:${targetNumber}?body=${body}`;
-                    successMsg = '✅ Request prepared! Opening your SMS application to send the details...';
-                } else { // Email
-                    // Generates a Mailto link
-                    const targetEmail = 'chetanbogati1998@gmail.com';
-                    destinationUrl = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-                    successMsg = '✅ Request prepared! Opening your email application to send the details...';
-                }
-                
-                // 4. Submit and provide feedback
-                formMessage.style.color = 'yellow';
-                formMessage.innerHTML = successMsg;
-                submitButton.disabled = true;
-
-                // Open the link (WhatsApp, SMS, or Mailto)
-                setTimeout(() => {
-                    window.open(destinationUrl, '_blank');
-                    
-                    // Reset the form and button after a short delay
-                    setTimeout(() => {
-                        form.reset();
-                        submitButton.disabled = false;
-                        formMessage.innerHTML = 'Thank you! We will check your submission and be in touch shortly.';
-                        formMessage.style.color = 'var(--white)';
-                    }, 1000);
-                    
-                }, 500);
-            });
-        });
-    </script>
+    window.open(url, '_blank');
+    msg.innerHTML = 'Request prepared! Please send the message in the app that just opened.';
+    form.reset();
+});
+</script>
 
 </body>
 </html>
