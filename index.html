@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeSpark Service Limited - Professional Cleaning in New Zealand</title>
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 🎨 Global Styles --- */
+        :root {
+            --primary-color: #007bff; /* A clean, trustworthy blue */
+            --secondary-color: #28a745; /* A fresh, action-oriented green */
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --font-main: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: #fff;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--dark-color);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* --- 🌟 Utility Classes --- */
+        .text-center { text-align: center; }
+        .py-4 { padding: 40px 0; }
+        .my-4 { margin: 40px 0; }
+
+        /* --- 👆 Buttons --- */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-large {
+            font-size: 1.1rem;
+            padding: 15px 35px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: #1e7e34;
+        }
+
+        /* --- 🧱 Header & Hero Section --- */
+        #header {
+            background: var(--light-color);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        #header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #header .logo img {
+            height: 40px; /* Adjust size as needed */
+            margin-right: 10px;
+        }
+        
+        #header .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('your-placeholder-hero-image.jpg') no-repeat center center/cover;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        #hero .hero-content {
+            padding: 60px 0;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* --- 🧼 Services Section --- */
+        #services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        #services .service-card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        #services .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        #services .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* --- 📞 CTA Section --- */
+        #cta {
+            background: var(--primary-color);
+            color: #fff;
+            text-align: center;
+        }
+        
+        #cta h2 {
+            color: #fff;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- 💬 Contact Section (Simplified for static page) --- */
+        #contact .contact-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #contact .contact-item {
+            flex-basis: 250px;
+            margin: 20px 10px;
+        }
+        
+        #contact .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        /* --- 🦶 Footer --- */
+        #footer {
+            background: var(--dark-color);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- 📱 Media Queries (Responsiveness) --- */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            #hero p {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container logo">
+            <img src="logo.png" alt="PrimeSpark Service Limited Logo" class="animate__animated animate__fadeInLeft">
+            <span class="logo-text animate__animated animate__fadeInRight">PrimeSpark Service Limited</span>
+        </div>
+    </header>
+
+    <section id="hero" class="animate__animated animate__fadeIn">
+        <div class="container hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Sparkle, Simplified. Premium Cleaning in New Zealand.</h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">Your local experts for a brilliantly clean home or business.</p>
+            <a href="#cta" class="btn btn-large btn-secondary animate__animated animate__pulse animate__infinite">GET YOUR FREE QUOTE NOW</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-4 text-center">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeInUp">Experience the PrimeSpark Difference</h2>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-05s" style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 30px;">
+                We are your trusted, professional cleaning partner across New Zealand. We don't just clean; we restore your space to its peak condition. Our credible and meticulous teams ensure every service, from routine home cleaning to major post-construction tidy-ups, delivers unmatched quality. **Get a quote today and let us bring the sparkle back to your life!**
+            </p>
+            <a href="mailto:chetanbogati1998@gmail.com?subject=Quote%20Request%20(Website)&body=Hello%20PrimeSpark%2C%0A%0AI%20am%20interested%20in%20your%20[Service%20Type%2C%20e.g.%20Deep%20Cleaning]%20service.%20Please%20provide%20a%20quote.%0A%0AMy%20details%3A%0AName%3A%0ALocation%3A%0APreferred%20Date%3A%0A" 
+               class="btn animate__animated animate__bounceIn">
+                Email for Quote
+            </a>
+            <a href="https://wa.me/64224210046?text=Hello%20PrimeSpark%2C%20I%20would%20like%20a%20fast%20quote%20for%20a%20cleaning%20service." 
+               class="btn btn-secondary animate__animated animate__bounceIn animate__delay-05s" target="_blank">
+                WhatsApp for Quote
+            </a>
+        </div>
+    </section>
+    
+    <hr class="container my-4">
+
+    <section id="services" class="py-4">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeInUp">Our Premium Cleaning Services</h2>
+            
+            <div class="service-grid">
+                
+                <div class="service-card animate__animated animate__zoomIn">
+                    <h3>Deep Cleaning</h3>
+                    <p>When your space needs a complete reset. We meticulously clean every corner, detail, and surface to bring a truly renewed feeling to your home or office.</p>
+                </div>
+                
+                <div class="service-card animate__animated animate__zoomIn animate__delay-05s">
+                    <h3>Commercial & Home Cleaning</h3>
+                    <p>Reliable, scheduled cleaning services tailored to your needs. Perfect for maintaining a spotless business or a sparkling, stress-free household week after week.</p>
+                </div>
+                
+                <div class="service-card animate__animated animate__zoomIn animate__delay-1s">
+                    <h3>Move Out Cleaning</h3>
+                    <p>Ensure you get your bond back with our comprehensive service. We guarantee a thorough, end-of-tenancy clean that meets the highest standards.</p>
+                </div>
+                
+                <div class="service-card animate__animated animate__zoomIn animate__delay-15s">
+                    <h3>After Construction Cleaning</h3>
+                    <p>The final, critical step after a renovation. We clear all dust, debris, and marks, transforming a messy site into a safe, ready-to-use, pristine space.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="container my-4">
+
+    <section id="cta" class="py-4">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeInDown">Ready for a Cleaner, Brighter Space?</h2>
+            <p class="animate__animated animate__fadeInUp">Contact us now for a quick, obligation-free quote.</p>
+            <div class="my-4 animate__animated animate__tada animate__delay-2s">
+                <a href="tel:+64224210046" class="btn btn-large">
+                    Quick Call (+64 224210046)
+                </a>
+                
+                <a href="https://wa.me/64224210046?text=I%20am%20interested%20in%20a%20service%20from%20PrimeSpark." 
+                   class="btn btn-large btn-secondary" target="_blank">
+                    Instant WhatsApp Chat
+                </a>
+                
+                <a href="sms:+64224210046?body=Please%20send%20me%20a%20quote%20for%20cleaning%20services." 
+                   class="btn">
+                   Send SMS Quote Request
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-4">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeInUp">Get In Touch</h2>
+            <p class="text-center animate__animated animate__fadeInUp animate__delay-05s">We're here to answer your questions and schedule your service.</p>
+            
+            <div class="contact-details">
+                <div class="contact-item animate__animated animate__fadeInLeft">
+                    <h3>Email</h3>
+                    <p><a href="mailto:chetanbogati1998@gmail.com">chetanbogati1998@gmail.com</a></p>
+                </div>
+                <div class="contact-item animate__animated animate__fadeInDown">
+                    <h3>Phone/SMS</h3>
+                    <p><a href="tel:+64224210046">+64 224210046</a></p>
+                </div>
+                <div class="contact-item animate__animated animate__fadeInRight">
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/64224210046" target="_blank">+64 224210046</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> PrimeSpark Service Limited. All rights reserved. Servicing New Zealand.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Optional: Simple scroll animation for a smoother experience
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // --- Animation Triggers on Scroll (UX Enhancement) ---
+        // This makes elements animate only when they become visible
+        const animateElements = document.querySelectorAll('.animate__animated');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Start the animation by adding the visible class (or removing a hidden class)
+                    // Animate.css uses classes directly, so we just let them run on load/appear.
+                    // For elements with infinite animation (like the CTA), we ensure it only happens when visible.
+                    if (entry.target.classList.contains('animate__infinite')) {
+                         entry.target.style.animationPlayState = 'running';
+                    }
+                } else {
+                    // Pause infinite animations when off-screen to save resources
+                    if (entry.target.classList.contains('animate__infinite')) {
+                        entry.target.style.animationPlayState = 'paused';
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+    </script>
+
+</body>
+</html>
